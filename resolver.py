@@ -17,14 +17,20 @@ class Resolver:
         return bytearray(base64.b64decode(encoded_str))
     
 
-    def get_e4_player_js(self) -> str:
+    def get_player_js(self, player) -> str:
         '''
-            Fetches e4 player from rabbitstream.
+            Fetches player.
 
             Returns:
                 (str): rabbitstream e4-player content
         '''
-        req = requests.get("https://rabbitstream.net/js/player/prod/e4-player.min.js")
+        urls = {
+            "e1": "https://megacloud.tv/js/player/a/prod/e1-player.min.js",
+            "e4": "https://rabbitstream.net/js/player/prod/e4-player.min.js",
+            "e6": "https://rapid-cloud.co/js/player/prod/e6-player-v2.min.js",
+        }
+        
+        req = requests.get(urls[player])
         return req.text
     
 
@@ -58,7 +64,7 @@ class Resolver:
     
     def get_final_key(self, deob_key) -> list:
         '''
-            Get final e4 extraction key.
+            Get final extraction key.
 
             Returns:
                 (list): list of integers to get key
@@ -129,7 +135,7 @@ class Resolver:
         return decrypted_data.decode("utf-8")
 
 
-    def get_cdn(self, encrypted) -> dict:
+    def get_cdn(self, encrypted, player) -> dict:
         '''
             Takes encrypted data, uses regex to extract rabbitstreams e4 player key, uses that key to decrypt the aforementioned data.
 
@@ -137,7 +143,7 @@ class Resolver:
                 (dict): decrypted string loaded as json
         '''
         time_start = time.time()
-        e4_player = self.get_e4_player_js()
+        e4_player = self.get_player_js(player)
         array_key = self.get_extraction_key(e4_player)
         final_key = self.get_final_key(array_key)
         time_end = time.time()
@@ -153,4 +159,6 @@ class Resolver:
     
 if __name__ == "__main__":
     data = ""
-    print(Resolver().get_cdn(data))
+    player_type = ""
+
+    print(Resolver().get_cdn(data, player_type))
