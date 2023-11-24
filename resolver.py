@@ -22,7 +22,7 @@ class Resolver:
             Fetches player.
 
             Returns:
-                (str): rabbitstream e4-player content
+                (str): player content
         '''
         urls = {
             "e1": "https://megacloud.tv/js/player/a/prod/e1-player.min.js",
@@ -137,14 +137,14 @@ class Resolver:
 
     def get_cdn(self, encrypted, player) -> dict:
         '''
-            Takes encrypted data, uses regex to extract rabbitstreams e4 player key, uses that key to decrypt the aforementioned data.
+            Takes encrypted data, uses regex to extract player key, uses that key to decrypt the data.
 
             Returns:
                 (dict): decrypted string loaded as json
         '''
         time_start = time.time()
-        e4_player = self.get_player_js(player)
-        array_key = self.get_extraction_key(e4_player)
+        player = self.get_player_js(player)
+        array_key = self.get_extraction_key(player)
         final_key = self.get_final_key(array_key)
         time_end = time.time()
 
