@@ -1,12 +1,11 @@
 import re
-import time
 import json
 import base64
 import hashlib
 import requests
 
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import unpad
+from Cryptodome.Cipher import AES
+from Cryptodome.Util.Padding import unpad
 
 class Resolver:    
     def calculate_md5(self, input_bytes) -> bytes:
@@ -142,13 +141,9 @@ class Resolver:
             Returns:
                 (dict): decrypted string loaded as json
         '''
-        time_start = time.time()
         player = self.get_player_js(player)
         array_key = self.get_extraction_key(player)
         final_key = self.get_final_key(array_key)
-        time_end = time.time()
-
-        print(f"Found key in {round(time_end - time_start, ndigits=4)} seconds: {final_key}")
 
         key, new_string = self.extract_key(encrypted, final_key)
         decryption_key = self.generate_encryption_key(
