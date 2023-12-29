@@ -11,5 +11,8 @@ Resolver written in python :)
 
 https://github.com/Ciarands/e4-player-resolver/assets/74070993/686b4e54-3738-4ed1-a5aa-596a833fc32c
 
+### Note:
+This is purely intended as proof of concept, the distribution of program is intended for educational purposes ONLY.
+
 ### Contact:
 discord - `ciaran_ds`
