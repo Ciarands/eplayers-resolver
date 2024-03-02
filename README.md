@@ -1,6 +1,9 @@
 # e1, e4 & e6 players resolver
 Resolver written in python :)
 
+### This resolver is broken! :(
+This is currently not working, I intend to release a repo which can be used in conjunction with this for scraping these sites, stay posted!
+
 ### Supports:
 - megacloud.tv's [e1-player](https://megacloud.tv/js/player/a/prod/e1-player.min.js)
 - rabbitstream.net's [e4-player](https://rabbitstream.net/js/player/prod/e4-player.min.js)
