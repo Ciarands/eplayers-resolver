@@ -2,7 +2,7 @@
 Resolver written in python :)
 
 ### This resolver is broken! :(
-This is currently not working, I intend to release a repo which can be used in conjunction with this for scraping these sites, stay posted!
+This is not working, I intend to release a repo in future which will be able to scrape these sites.
 
 ### Supports:
 - megacloud.tv's [e1-player](https://megacloud.tv/js/player/a/prod/e1-player.min.js)
@@ -17,5 +17,4 @@ https://github.com/Ciarands/e4-player-resolver/assets/74070993/686b4e54-3738-4ed
 ### Note:
 This is purely intended as proof of concept, the distribution of program is intended for educational purposes ONLY.
 
-### Contact:
-discord - `ciaran_ds`
+#### [Join the discord for support](https://discord.gg/z2r8e8neQ7)
